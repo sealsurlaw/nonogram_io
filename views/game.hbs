@@ -1,47 +1,11 @@
-<!DOCTYPE html>
-<html>
+<canvas id="canvas" class="middle" width="800" height="640" style="border-style: solid;"></canvas>
 
-<head>
-
-    <title>
-        NGram
-    </title>
-
-    <style>
-
-        body {
-            background-color: aqua;
-        }
-
-        .centered {
-            text-align: center;
-        }
-
-        canvas {
-            padding: 0;
-            margin: auto;
-            display: block;
-            width: 800px;
-            background-color: #FFFFAA;
-        }
-    </style>
-
-</head>
-
-<body>
-    <canvas id="canvas" class="middle" width="800" height="640" style="border-style: solid;"></canvas>
-
-    {{!-- Globals --}}
-    <script src="javascripts/globals.js"></script>
-    {{!-- Objects --}}
-    <script src="javascripts/objects/cell.js"></script>
-    <script src="javascripts/objects/wingrid.js"></script>
-    <script src="javascripts/objects/grid.js"></script>
-    <script src="javascripts/objects/toggle.js"></script>
-    {{!-- Core --}}
-    <script src="javascripts/game.js"></script>
-
-</body>
-
-
-</html>
+{{!-- Globals --}}
+<script src="javascripts/globals.js"></script>
+{{!-- Objects --}}
+<script src="javascripts/objects/cell.js"></script>
+<script src="javascripts/objects/wingrid.js"></script>
+<script src="javascripts/objects/grid.js"></script>
+<script src="javascripts/objects/toggle.js"></script>
+{{!-- Core --}}
+<script src="javascripts/game.js"></script>
