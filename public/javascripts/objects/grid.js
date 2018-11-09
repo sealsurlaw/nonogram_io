@@ -52,7 +52,12 @@ function Grid(posX, posY, size, cellSize) {
         }
 
         // Draw side numbers
-        ctx.fillStyle = "#000000";
+        ctx.fillStyle = "#FFFFFF";
+        ctx.shadowColor = "#000000"
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 4;
+
         ctx.font = (cellSize-10) + "px Courier";
 
         leftSideNumbers.forEach(function(row, i){
@@ -78,6 +83,10 @@ function Grid(posX, posY, size, cellSize) {
                 tempY += cellSize-5;
             });
         });
+
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur = 0;
 
     }
 

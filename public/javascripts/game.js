@@ -31,6 +31,7 @@ var gridX = Math.floor((c.width - (gridSize*gridCellSize)) / 2);
 // Create new grid and toggle
 var grid = new Grid(20,gridX,gridSize,gridCellSize);
 var toggle = new Toggle(680,20, clickTypes.FILL,grid);
+var bg = new Background(50);
 
 // Listens for clicks
 c.addEventListener('click', (e) => {
@@ -54,6 +55,7 @@ function refresh() {
     ctx.clearRect(0, 0, c.width, c.height);
 
     // Draw grid and toggle
+    bg.drawBackground();
     grid.drawGrid();
     toggle.drawToggle();
 

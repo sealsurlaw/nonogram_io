@@ -7,6 +7,8 @@ function WinGrid(posX, posY, size, cellSize) {
     this.clickType = clickTypes.FILL;
 
     this.drawGrid = function () {
+        ctx.beginPath();
+        ctx.lineWidth = 3;
         
         fLevel.forEach((element,i) => {
             element.forEach((winCell,j) => {
@@ -49,9 +51,17 @@ function WinGrid(posX, posY, size, cellSize) {
 
         // Draw text
         const birthdayString = "Happy Birthday, Dyani!"
+        ctx.fillStyle = "#FFFFFF";
+        ctx.shadowColor = "#000000"
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 4;
         ctx.font = "50px Ariel";
         var textWidth = ctx.measureText(birthdayString).width;
         ctx.fillText(birthdayString,(c.width-textWidth)/2,500);
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur = 0;
 
     }
 
