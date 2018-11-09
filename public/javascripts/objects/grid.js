@@ -11,6 +11,7 @@ function Grid(posX, posY, size, cellSize) {
 
     this.drawGrid = function () {
         ctx.beginPath();
+        ctx.lineWidth = 3;
 
         cellArray.forEach(element => {
             element.forEach(thisCell => {
@@ -28,8 +29,27 @@ function Grid(posX, posY, size, cellSize) {
 
         // Draw all the lines
         ctx.stroke();
-
         ctx.closePath();
+
+        //Draw thick middle lines if even
+        if (this.size % 2 == 0) {
+            ctx.beginPath();
+
+            ctx.lineWidth = 8;
+
+            let midX = x + (this.gridWidth/2);
+            let midY = y + (this.gridWidth/2);
+
+            ctx.moveTo(midY,x);
+            ctx.lineTo(midY,x+(cellSize*size));
+
+            ctx.moveTo(y,midX);
+            ctx.lineTo(y+(cellSize*size),midX);
+
+            ctx.stroke();
+            ctx.closePath();
+
+        }
 
         // Draw side numbers
         ctx.fillStyle = "#000000";

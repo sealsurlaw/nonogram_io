@@ -18,6 +18,7 @@ function Toggle(togX,togY,initialState,gridRef) {
 
             ctx.strokeStyle = "#FF0000";
             ctx.beginPath();
+            ctx.lineWidth = 5;
 
             ctx.moveTo(this.togX,this.togY);
             ctx.lineTo(this.togX+this.size,this.togY+this.size);
@@ -33,6 +34,7 @@ function Toggle(togX,togY,initialState,gridRef) {
         // Border line
         ctx.strokeStyle = "#000000";
         ctx.beginPath();
+        ctx.lineWidth = 3;
 
         ctx.moveTo(this.togX,this.togY);
         ctx.lineTo(this.togX+this.size,this.togY);
