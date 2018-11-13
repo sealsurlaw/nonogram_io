@@ -1,6 +1,6 @@
-function Cell(posX, posY, size, filled, marked, corner) {
-    this.posX = posX;
-    this.posY = posY;
+function Cell(posX, posY, size, filled, marked) {
+    this.x = posX;
+    this.y = posY;
     this.size = size;
     this.filled = filled;
     this.marked = marked;
@@ -8,46 +8,23 @@ function Cell(posX, posY, size, filled, marked, corner) {
     this.drawCell = function () {
         if (this.filled == true) {
             ctx.fillStyle = "#333333";
-            ctx.fillRect(posX,posY,size,size);
+            ctx.fillRect(this.x, this.y, size, size);
         }
         else {
             ctx.fillStyle = "#FFFFFF";
-            ctx.fillRect(posX,posY,size,size);
+            ctx.fillRect(this.x, this.y, size, size);
         }
         if (this.marked == true) {
             // ctx.strokeStyle = "#FF0000";
-            ctx.moveTo(posX,posY);
-            ctx.lineTo(posX+size,posY+size);
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(this.x + size, this.y + size);
 
-            ctx.moveTo(posX+size,posY);
-            ctx.lineTo(posX,posY+size);
+            ctx.moveTo(this.x + size, this.y);
+            ctx.lineTo(this.x, this.y + size);
         }
         // ctx.strokeStyle = "#000000";
-        ctx.moveTo(posX,posY);
-        ctx.lineTo(posX+size,posY);
-
-        ctx.moveTo(posX,posY);
-        ctx.lineTo(posX,posY+size);
+        ctx.moveTo(this.x + size, this.y);
+        ctx.lineTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + size);
     }
-
-    this.wasClicked = function () {
-        if (grid.clickType == clickTypes.FILL) {
-            if (this.filled == false) {
-                this.filled = true;
-                this.marked = false;
-            }
-            else if (this.filled == true) {
-                this.filled = false;
-            }
-        }
-        else if (grid.clickType == clickTypes.MARK) {
-            if (this.marked == false && this.filled == false) {
-                this.marked = true;
-            }
-            else if (this.marked == true) {
-                this.marked = false;
-            }
-        }
-    }
-
 }

@@ -1,48 +1,32 @@
 function WinGrid(posX, posY, size, cellSize) {
-    x = posX;
-    y = posY;
+    this.x = posX;
+    this.y = posY;
     this.size = size;
     this.cellSize = cellSize;
     this.gridWidth = size*cellSize;
     this.clickType = clickTypes.FILL;
 
-    this.drawGrid = function () {
+    this.draw = function () {
         ctx.beginPath();
         ctx.lineWidth = 3;
         
         fLevel.forEach((element,i) => {
             element.forEach((winCell,j) => {
-                if (winCell == R) {
-                    ctx.fillStyle = "#FF0000";
-                }
-                else if (winCell == B) {
-                    ctx.fillStyle = "#000000";
-                }
-                else if (winCell == Y) {
-                    ctx.fillStyle = "#FFFF00";
-                }
-                else if (winCell == G) {
-                    ctx.fillStyle = "#EEEE00";
-                }
-                ctx.fillRect(y+(j*this.cellSize),x+(i*this.cellSize),this.cellSize,this.cellSize);
+                ctx.fillStyle = winCell;
+                ctx.fillRect(this.x + (j*this.cellSize),
+                             this.y + (i*this.cellSize),
+                             this.cellSize,
+                             this.cellSize);
             });
         });
 
-        // Draw right line
-        ctx.moveTo(y+(cellSize*size),x);
-        ctx.lineTo(y+(cellSize*size),x+(cellSize*size));
+        // Draw lines
+        ctx.moveTo(this.x, this.y);
 
-        // Draw left line
-        ctx.moveTo(y,x);
-        ctx.lineTo(y,x+(cellSize*size));
-
-        // Draw bottom line
-        ctx.moveTo(y,x+(cellSize*size));
-        ctx.lineTo(y+(cellSize*size),x+(cellSize*size));
-
-        // Draw top line
-        ctx.moveTo(y,x);
-        ctx.lineTo(y+(cellSize*size),x);
+        ctx.lineTo(this.x + (cellSize*size), this.y);
+        ctx.lineTo(this.x + (cellSize*size), this.y + (cellSize*size));
+        ctx.lineTo(this.x, this.y + (cellSize*size));
+        ctx.lineTo(this.x, this.y);
 
         // Draw all the lines
         ctx.stroke();
@@ -65,11 +49,11 @@ function WinGrid(posX, posY, size, cellSize) {
 
     }
 
-    function checkWin() {
+    this.click = function (clickX,clickY) {
         // Empty
     }
 
-    this.cellWasClicked = function (clickX,clickY) {
+    function checkWin() {
         // Empty
     }
 }

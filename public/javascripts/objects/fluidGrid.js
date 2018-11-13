@@ -1,15 +1,37 @@
-function Grid(posX, posY, size, cellSize) {
+var level =
+[
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+]
+
+
+function FluidGrid(posX, posY, size, cellSize) {
     this.x = posX;
     this.y = posY;
     this.size = size;
     this.cellSize = cellSize;
     this.gridWidth = size*cellSize;
-    this.clickType = clickTypes.FILL;
+    this.clickType = clickTypes.BLACK;
+    this.blackNotColor = clickTypes.BLACK;
+    this.color = "#FFFFFF";
+
+    let leftSideNumbers;
+    let bottomSideNumbers;
 
     // All the cells in a grid
     var cellArray;
 
     this.draw = function () {
+        console.log(this.clickType);
+
         ctx.beginPath();
         ctx.lineWidth = 3;
 
@@ -96,26 +118,28 @@ function Grid(posX, posY, size, cellSize) {
     }
 
     this.click = function (clickX,clickY) {
-        cellArray.forEach( (element) => {
-            element.forEach( (thisCell) => {
+        cellArray.forEach( (element, i) => {
+            element.forEach( (thisCell,j) => {
                 if (clickX > thisCell.x && clickX < (thisCell.x + thisCell.size)
                     && clickY > thisCell.y && clickY < (thisCell.y + thisCell.size)) {
-                        wasClicked(thisCell, this.clickType);
+                        // wasClicked(thisCell, this.clickType);
+                        thisCell.filled = true;
+                        if (this.clickType == clickTypes.BLACK) {
+                            console.log("Black");
+                            thisCell.blackNotWhite = true;
+                            thisCell.color = this.color;
+                            level[i][j] = 1;
+                        }
+                        else if (this.clickType == clickTypes.WHITE) {
+                            console.log("White");
+                            thisCell.blackNotWhite = false;
+                            thisCell.color = this.color;
+                            level[i][j] = 0;
+                        }
                     }
             });
         });
-    }
-
-    this.checkWin = function () {
-        for (var i = 0; i < cellArray.length; ++i) {
-            for (var j = 0; j < cellArray[0].length; ++j) {
-                if (cellArray[i][j].filled == true  && level[i][j] == 0 ||
-                    cellArray[i][j].filled == false && level[i][j] == 1) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        this.calculateSideNumbers();
     }
 
     this.exportLevel = function() {
@@ -135,43 +159,58 @@ function Grid(posX, posY, size, cellSize) {
     }
 
     // Populate side numbers
-    var leftSideNumbers = [];
-    var bottomSideNumbers = [];
-    for (var i = 0; i < level.length; ++i) {
-        var zero = true;
-        var counter = 0;
-        leftSideNumbers.push([]);
-        for (var j = 0; j < level.length; ++j) {
-            if (level[i][j] == 1) {
-                zero = false;
-                ++counter;
+    this.calculateSideNumbers = function () {
+        leftSideNumbers = [];
+        bottomSideNumbers = [];
+        for (let i = 0; i < level.length; ++i) {
+            var zero = true;
+            var counter = 0;
+            leftSideNumbers.push([]);
+            for (let j = 0; j < level.length; ++j) {
+                if (level[i][j] == 1) {
+                    zero = false;
+                    ++counter;
+                }
+                else if (level[i][j] == 0 && zero == false) {
+                    zero = true;
+                    leftSideNumbers[i].push(counter);
+                    counter = 0;
+                }
             }
-            else if (level[i][j] == 0 && zero == false) {
-                zero = true;
-                leftSideNumbers[i].push(counter);
-                counter = 0;
-            }
+            if (zero == false) leftSideNumbers[i].push(counter);
+            if (leftSideNumbers[i].length == 0) leftSideNumbers[i].push(0);
         }
-        if (zero == false) leftSideNumbers[i].push(counter);
-        if (leftSideNumbers[i].length == 0) leftSideNumbers[i].push(0);
+        for (let i = 0; i < level.length; ++i) {
+            var zero = true;
+            var counter = 0;
+            bottomSideNumbers.push([]);
+            for (let j = 0; j < level.length; ++j) {
+                if (level[j][i] == 1) {
+                    zero = false;
+                    ++counter;
+                }
+                else if (level[j][i] == 0 && zero == false) {
+                    zero = true;
+                    bottomSideNumbers[i].push(counter);
+                    counter = 0;
+                }
+            }
+            if (zero == false) bottomSideNumbers[i].push(counter);
+            if (bottomSideNumbers[i].length == 0) bottomSideNumbers[i].push(0);
+        }
     }
-    for (let i = 0; i < level.length; ++i) {
-        var zero = true;
-        var counter = 0;
-        bottomSideNumbers.push([]);
-        for (let j = 0; j < level.length; ++j) {
-            if (level[j][i] == 1) {
-                zero = false;
-                ++counter;
-            }
-            else if (level[j][i] == 0 && zero == false) {
-                zero = true;
-                bottomSideNumbers[i].push(counter);
-                counter = 0;
-            }
-        }
-        if (zero == false) bottomSideNumbers[i].push(counter);
-        if (bottomSideNumbers[i].length == 0) bottomSideNumbers[i].push(0);
+
+    this.updateToColor = function (isColor) {
+        cellArray.forEach( element => {
+            element.forEach( cell => {
+                if (isColor == true) {
+                    cell.blackNotColor = false;
+                }
+                else {
+                    cell.blackNotColor = true;
+                }
+            });
+        });
     }
 
     // Create cell array
@@ -184,34 +223,19 @@ function Grid(posX, posY, size, cellSize) {
             let cellX = this.x + (i*cellSize);
             let cellY = this.y + (j*cellSize);
             let isFilled = false;
-            // var isFilled;
-            // if (level[i][j] == 1) {
-            //     isFilled = true;
-            // }
-            // else {
-            //     isFilled = false;
-            // }
-            cellArray[j][i] = new Cell(cellX, cellY, this.cellSize, isFilled, false);
+            cellArray[j][i] = new ColorCell(cellX, cellY, this.cellSize);
         }
     }
 
-    function wasClicked(cell, ct) {
-        if (ct == clickTypes.FILL) {
-            if (cell.filled == false) {
-                cell.filled = true;
-                cell.marked = false;
-            }
-            else if (cell.filled == true) {
-                cell.filled = false;
-            }
-        }
-        else if (ct == clickTypes.MARK) {
-            if (cell.marked == false && cell.filled == false) {
-                cell.marked = true;
-            }
-            else if (cell.marked == true) {
-                cell.marked = false;
-            }
-        }
-    }
+    // function wasClicked(cell, ct) {
+    //     if (cell.filled == false) {
+    //         cell.filled = true;
+    //     }
+    //     else if (cell.filled == true) {
+    //         cell.filled = false;
+    //     }
+    // }
+
+    // Create initial numbers
+    this.calculateSideNumbers();
 }

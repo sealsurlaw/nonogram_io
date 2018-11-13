@@ -23,7 +23,7 @@ function Background(numStripes) {
     this.numStripes = numStripes;
     this.counter = 0;
 
-    this.drawBackground = function () {
+    this.draw = function () {
         ctx.lineWidth = 3;
 
         if (this.numStripes%2 == 1) {
