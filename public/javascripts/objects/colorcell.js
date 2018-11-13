@@ -3,9 +3,9 @@ function ColorCell(posX, posY, size) {
     this.y = posY;
     this.size = size;
     this.filled = false;
-    this.color = "#000000";
+    this.color = "#FFFFFF";
     this.blackNotColor = true;
-    this.blackNotWhite = true;
+    this.blackNotWhite = false;
     
     this.drawCell = function () {
         if (this.filled == true) {

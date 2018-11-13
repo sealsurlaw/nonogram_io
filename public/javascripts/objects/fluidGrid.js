@@ -1,16 +1,4 @@
-var level =
-[
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0]
-]
+var level = [];
 
 
 function FluidGrid(posX, posY, size, cellSize) {
@@ -144,18 +132,26 @@ function FluidGrid(posX, posY, size, cellSize) {
 
     this.exportLevel = function() {
         var exportedLevel = [];
+        var exportedColor = [];
         cellArray.forEach((element,i) => {
             exportedLevel.push([]);
+            exportedColor.push([]);
             element.forEach((element2,j) => {
-                if (element2["filled"] == false) {
+                if (element2.blackNotWhite == false) {
                     exportedLevel[i].push(0);
                 }
                 else {
                     exportedLevel[i].push(1);
                 }
+                exportedColor[i].push(element2.color);
             });
         });
-        return JSON.stringify(exportedLevel).replace(/\],\[/g, '],\n [');
+        let coolstrings = "var level = \n";
+        coolstrings += JSON.stringify(exportedLevel).replace(/\],\[/g, '],\n [');
+        coolstrings += ";\n\nvar fLevel = \n";
+        coolstrings += JSON.stringify(exportedColor).replace(/\],\[/g, '],\n [');
+        coolstrings += ";"
+        return coolstrings;
     }
 
     // Populate side numbers
@@ -211,6 +207,14 @@ function FluidGrid(posX, posY, size, cellSize) {
                 }
             });
         });
+    }
+
+    // Create level
+    for (let i = 0; i < this.size; ++i) {
+        level.push([]);
+        for (let j = 0; j < this.size; ++j) {
+            level[i].push(0);
+        }
     }
 
     // Create cell array
