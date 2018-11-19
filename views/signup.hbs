@@ -1,0 +1,62 @@
+<div class="bounding">
+    <form action="/signup" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <h1>Sign Up</h1>
+        {{#if message}}
+        <h3>{{message}}</h3>
+        <br>
+        {{/if}}
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-3">
+                <label for="username" class="text-label"><b>Username</b></label>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" placeholder="Enter Username" name="username" required>
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-3">
+                <label for="email" class="text-label"><b>Email</b></label>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" placeholder="Enter Email" name="email" required>
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-3">
+                <label for="password" class="text-label"><b>Password</b></label>
+            </div>
+            <div class="col-lg-3">
+                <input type="password" placeholder="Enter Password" name="password" required>
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-3">
+                <label for="password-repeat" class="text-label"><b>Repeat Password</b></label>
+            </div>
+            <div class="col-lg-3">
+                <input type="password" placeholder="Enter Password Again" name="password-repeat" required>
+            </div>
+        </div>
+
+        <hr>
+
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-2 canceldiv">
+                <button type="button" onclick="window.history.back()" class="cancelbtn">Cancel</button>
+            </div>
+            <div class="col-lg-2">
+                <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="mr-auto">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/maker">Make</a></li>
+        </ul>
+    </div>
+    <div class="ml-auto">
+        <ul>
+            {{#if user}}
+            <a href="/logout"><li><i class="fas fa-user"></i><h5 class="icon">{{user.user_name}}</h5></li></a>
+            {{else}}
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>

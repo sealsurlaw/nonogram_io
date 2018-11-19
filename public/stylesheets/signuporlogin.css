@@ -1,0 +1,114 @@
+.email, .password, .password-repeat {
+    text-align: center;
+}
+
+.input-line {
+    margin-bottom: 10px;
+}
+
+.bounding {
+    margin: 30px 0;
+}
+
+.bounding .container {
+    color: #678FFE;
+    background-color: #180D49;
+    padding: 25px;
+}
+
+.text-label {
+    margin-right: 20px;
+}
+
+.cancelbtn, .signupbtn {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* .cancelbtn {
+    float: ;
+} */
+
+/* .signupbtn {
+    float: left;
+} */
+
+div {
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+}
+
+body {
+    background-color: #58A7C6;
+}
+
+a {
+    color: #8B76E8;
+}
+
+hr {
+    border-color: #FFFFFF;
+    margin: 30px 0;
+}
+
+h1, p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    text-align: center;
+    color: #FF0000;
+}
+
+label {
+    float: right;
+}
+
+input {
+    width: 180px;
+}
+
+button {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+button:hover {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+@media (max-width: 991.98px) {
+    input {
+        width: 100%;
+    }
+
+    label {
+        float: left;
+    }
+
+    .bounding {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .signupbtn {
+        float: right;
+    }
+
+    .cancelbtn {
+        display: none;
+    }
+
+    h1, p {
+        text-align: left;
+    }
+    
+    h3 {
+        text-align: left;
+        color: #FF0000;
+    }
+}

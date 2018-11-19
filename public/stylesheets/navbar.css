@@ -1,0 +1,51 @@
+.navbar {
+    background-color: #180D49;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: right;
+}
+
+li {
+    float: left;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #BBBBBB;
+    text-decoration: none;
+}
+
+i, .icon {
+    margin-right: 10px;
+    color: white;
+}
+
+i:hover, .icon:hover {
+    color: #DDDDDD;
+}
+
+.icon {
+    display: inline-block;
+}
+
+h5 {
+    font-size: 0.8em;
+}
+
+/* div {
+    border-width: 1px;
+    border-style: solid;
+    border-color: red;
+} */

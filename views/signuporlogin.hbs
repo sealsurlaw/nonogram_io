@@ -1,0 +1,131 @@
+<div class="bounding">
+
+    <form action="/signup" id="signup" method="POST" enctype="multipart/form-data"></form>
+    <form action="/login" id="login" method="POST" enctype="multipart/form-data"></form>
+
+    <div class="container" style="padding: 25px 50px;">
+         <div class="row justify-content-center input-line">
+            <div class="col-lg-6">
+                <h1>Sign Up</h1>
+            </div>
+            <div class="col-lg-6">
+                <h1>Login</h1>
+            </div>
+        </div>
+        {{#if message}}
+        <h3>{{message}}</h3>
+        {{/if}}
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-5">
+                <hr>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="username" class="text-label"><b>Username</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" form="signup" tabindex="1" placeholder="Enter Username" name="username" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                {{!-- Empty --}}
+            </div>
+            <div class="col-lg-5">
+                <hr>
+                {{!-- Empty --}}
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="email" class="text-label"><b>Email</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" form="signup" tabindex="2" placeholder="Enter Email" name="email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2" style="text-align: center;">
+                OR
+            </div>
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="email" class="text-label"><b>Email</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" form="login" tabindex="6" placeholder="Enter Email" name="email" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="password" class="text-label"><b>Password</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="password" form="signup" tabindex="3" placeholder="Enter Password" name="password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                {{!-- Empty --}}
+            </div>
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="password" class="text-label"><b>Password</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="password" form="login" tabindex="7" placeholder="Enter Password" name="password" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center input-line">
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <label for="password-repeat" class="text-label"><b>Repeat</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="password" form="signup" tabindex="4" placeholder="Repeat Password" name="password-repeat" required>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-lg-2">
+                {{!-- Empty --}}
+            </div>
+            <div class="col-lg-5">
+                <div class="col-lg-5">
+                    {{!-- Empty --}}
+                </div>
+                <div class="col-lg-7">
+                    <input style="visibility: hidden;">
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-5 canceldiv">
+                <button type="submit" form="signup" tabindex="5" class="cancelbtn">Sign Up</button>
+            </div>
+            <div class="col-lg-2">
+                {{!-- Empty --}}
+            </div>
+            <div class="col-lg-5">
+                <button type="submit" form="login" tabindex="8" class="loginbtn">Login</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -13,10 +13,19 @@ function WinGrid(posX, posY, size, cellSize) {
         fLevel.forEach((element,i) => {
             element.forEach((winCell,j) => {
                 ctx.fillStyle = winCell;
+                ctx.strokeStyle = winCell;
                 ctx.fillRect(this.x + (j*this.cellSize),
                              this.y + (i*this.cellSize),
                              this.cellSize,
                              this.cellSize);
+                // ctx.beginPath();
+                // ctx.lineWidth = 1;
+                // ctx.moveTo(this.x +(j*this.cellSize), this.y + (i*this.cellSize));
+                // ctx.lineTo(this.x +(j*this.cellSize), this.y + (i*this.cellSize) + this.cellSize);
+                // ctx.lineTo(this.x +(j*this.cellSize) + this.cellSize, this.y + (i*this.cellSize) + this.cellSize);
+                // ctx.lineTo(this.x +(j*this.cellSize) + this.cellSize, this.y + (i*this.cellSize));
+                // ctx.stroke();
+                // ctx.endPath();
             });
         });
 
@@ -34,18 +43,18 @@ function WinGrid(posX, posY, size, cellSize) {
         ctx.closePath();
 
         // Draw text
-        const birthdayString = "Happy Birthday, Dyani!"
-        ctx.fillStyle = "#FFFFFF";
-        ctx.shadowColor = "#000000"
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 2;
-        ctx.shadowBlur = 4;
-        ctx.font = "50px Ariel";
-        var textWidth = ctx.measureText(birthdayString).width;
-        ctx.fillText(birthdayString,(c.width-textWidth)/2,500);
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 0;
-        ctx.shadowBlur = 0;
+        // const birthdayString = "Happy Birthday, Dyani!"
+        // ctx.fillStyle = "#FFFFFF";
+        // ctx.shadowColor = "#000000"
+        // ctx.shadowOffsetX = 2;
+        // ctx.shadowOffsetY = 2;
+        // ctx.shadowBlur = 4;
+        // ctx.font = "50px Ariel";
+        // var textWidth = ctx.measureText(birthdayString).width;
+        // ctx.fillText(birthdayString,(c.width-textWidth)/2,500);
+        // ctx.shadowOffsetX = 0;
+        // ctx.shadowOffsetY = 0;
+        // ctx.shadowBlur = 0;
 
     }
 
