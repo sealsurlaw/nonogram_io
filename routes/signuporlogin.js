@@ -22,21 +22,23 @@ router.post('/', function(req, res, next) {
         db.any(`
             UPDATE public.puzzles
             SET puzzle_title='`+title+`', puzzle_description='`+description+`', puzzle_published=true
-            WHERE puzzle_id=`+id
+            WHERE puzzle_id=`+id+` RETURNING puzzle_id`
         )
+        .then( id => {
+            console.log(id);
+            if (req.signedCookies.tid) {
+                help.render(req, res, 'signuporlogin', {message: "Please login or signup to continue"});
+                return;
+            }
+            else if (req.signedCookies.id){
+                res.redirect('/');
+            }
+        })
         .catch ( err => {
             console.log(err);
             help.render(req, res, 'maker');
         });
     });
-
-    if (req.signedCookies.tid) {
-        help.render(req, res, 'signuporlogin', {message: "Please login or signup to continue"});
-        return;
-    }
-    else if (req.signedCookies.id){
-        res.redirect('/');
-    }
 });
 
 module.exports = router;
