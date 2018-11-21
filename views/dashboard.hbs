@@ -1,2 +1,59 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="bounding">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                {{!-- Empty --}}
+            </div>
+
+            <div class="col-lg-4">
+
+                <h1 class="centered">My Puzzles</h1>
+                {{#if message}}
+                <h3 class="centered">{{message}}</h3>
+                <a href="/maker"><div class="centered" style="margin-bottom: 30px;">Make some puzzles</div></a>
+                {{/if}}
+
+            </div>
+
+            <div class="col-lg-4">
+                Sort by: 
+                <ul>
+                    <li><a class="sort" href="dashboard?sort=title">Title</a></li>
+                    <li><a class="sort" href="dashboard?sort=created">Created</a></li>
+                    <li><a class="sort" href="dashboard?sort=edited">Edited</a></li>
+                    <li><a class="sort" href="dashboard?sort=size">Size</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <br>
+                Showing {{puzzles.length}} puzzles!
+            </div>
+        </div>
+
+        <div class="row">
+
+            {{#each puzzles}}
+            <div class="col">
+                <div class="puzzle">
+                    <a href="/puzzle/{{this.puzzle_id}}">
+                        <div class="centered">
+                            <img src="{{this.puzzle_thumbnail}}" alt="{{this.puzzle_title}}" class="image-thumbnail">
+                        </div>
+                        <h4 class="centered">{{this.puzzle_title}} - <i class="fas fa-star"></i>{{this.puzzle_rating}}</h4>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+</div>

@@ -89,6 +89,6 @@ function ExportButton(x, y, grid) {
     }
 
     function saveMap() {
-
+        grid.exportLevel();
     }
 }

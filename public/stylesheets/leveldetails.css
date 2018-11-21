@@ -1,0 +1,142 @@
+#top-ele {
+    margin-top: 15px;
+}
+
+.bounding {
+    margin: 30px 0;
+}
+
+.bounding .container {
+    color: #678FFE;
+    background-color: #180D49;
+    padding: 25px;
+}
+
+.cancelbtn, .loginbtn {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.cancelbtn {
+    float: right;
+}
+
+.email, .password {
+    text-align: center;
+}
+
+.image-thumbnail {
+    width: 200px;
+    image-rendering: pixelated;
+}
+
+.input-line {
+    margin-bottom: 10px;
+}
+
+.loginbtn {
+    float: left;
+}
+
+.right {
+    display: block;
+    float: right;
+}
+
+.star {
+    color: white;
+}
+
+.text-label {
+    margin-right: 20px;
+}
+
+/* div {
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+} */
+
+a {
+    color: #8B76E8;
+}
+
+body {
+    background-color: #58A7C6;
+}
+
+button {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+button:hover {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    text-align: center;
+    color: #FF0000;
+}
+
+hr {
+    border-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+input, textarea {
+    width: 350px;
+}
+
+label {
+    float: right;
+}
+
+@media (max-width: 991.98px) {
+    input, textarea {
+        width: 100%;
+    }
+
+    label {
+        float: left;
+    }
+
+    #top-ele {
+        margin-top: 0;
+    }
+
+    .right {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bounding {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .loginbtn {
+        float: right;
+    }
+
+    .cancelbtn {
+        display: none;
+    }
+
+    h1 {
+        text-align: left;
+    }
+    
+    h3 {
+        text-align: left;
+        color: #FF0000;
+    }
+}

@@ -3,6 +3,10 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/maker">Make</a></li>
+            <li><a href="/search">Play</a></li>
+            {{#if user}}
+            <li><a href="/dashboard">My Puzzles</a></li>
+            {{/if}}
         </ul>
     </div>
     <div class="ml-auto">

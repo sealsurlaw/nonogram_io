@@ -11,6 +11,12 @@ var index = require('./routes/index');
 var signup = require('./routes/signup');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+var leveldetails = require('./routes/leveldetails');
+var signuporlogin = require('./routes/signuporlogin');
+var dashboard = require('./routes/dashboard');
+var search = require('./routes/search');
+var puzzle = require('./routes/puzzle');
+var maker = require('./routes/maker');
 
 var app = express();
 
@@ -29,6 +35,12 @@ app.use('/', index);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/leveldetails', leveldetails);
+app.use('/signuporlogin', signuporlogin);
+app.use('/dashboard', dashboard);
+app.use('/search', search);
+app.use('/puzzle', puzzle);
+app.use('/maker', maker);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -10,6 +10,10 @@
     margin: 30px 0;
 }
 
+.star {
+    color: white;
+}
+
 .bounding .container {
     color: #678FFE;
     background-color: #180D49;
@@ -20,24 +24,21 @@
     margin-right: 20px;
 }
 
-.cancelbtn, .signupbtn {
+.loginbtn, .signupbtn {
     width: 100px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-/* .cancelbtn {
-    float: ;
-} */
+.btndiv {
+    text-align: center;
+}
 
-/* .signupbtn {
-    float: left;
-} */
-
-div {
+/* div {
     border-width: 1px;
     border-color: red;
     border-style: solid;
-}
+} */
 
 body {
     background-color: #58A7C6;
@@ -95,12 +96,8 @@ button:hover {
         padding-right: 0;
     }
 
-    .signupbtn {
+    .signupbtn, .loginbtn {
         float: right;
-    }
-
-    .cancelbtn {
-        display: none;
     }
 
     h1, p {

@@ -1,0 +1,48 @@
+<div class="bounding">
+    <form action="/signuporlogin" method="POST" enctype="multipart/form-data">
+    <input type="text" name="puzzle_id" value="{{id}}" style="display: none">
+    <div class="container">
+        <h1>Level Details</h1>
+        {{#if message}}
+        <h3>{{message}}</h3>
+        {{/if}}
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{img}}" alt="Preview" class="right image-thumbnail">
+            </div>
+            <div class="col-lg-8">
+                
+                <div class="row justify-content-start input-line" id="top-ele">
+                    <div class="col-lg-3">
+                        <label for="title" class="text-label"><b>Title<span class="star">*</span></b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" placeholder="Title" name="title" required>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-start input-line">
+                    <div class="col-lg-3">
+                        <label for="description" class="text-label"><b>Description</b></label>
+                    </div>
+                    <div class="col-lg-7">
+                        <textarea rows="4" placeholder="Description" name="description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-lg-2 canceldiv">
+                <button type="button" onclick="window.history.back()" class="cancelbtn">Back</button>
+            </div>
+            <div class="col-lg-2">
+                <button type="submit" class="loginbtn">Save</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

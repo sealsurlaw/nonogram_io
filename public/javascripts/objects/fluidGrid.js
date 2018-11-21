@@ -146,12 +146,27 @@ function FluidGrid(posX, posY, size, cellSize) {
                 exportedColor[i].push(element2.color);
             });
         });
-        let coolstrings = "var level = \n";
-        coolstrings += JSON.stringify(exportedLevel).replace(/\],\[/g, '],\n [');
-        coolstrings += ";\n\nvar fLevel = \n";
-        coolstrings += JSON.stringify(exportedColor).replace(/\],\[/g, '],\n [');
-        coolstrings += ";"
-        return coolstrings;
+        exportedLevel = JSON.stringify(exportedLevel);
+        exportedColor = JSON.stringify(exportedColor);
+
+        var minic = document.getElementById("thumb");
+        var minicx = minic.getContext('2d');
+        var s = Math.ceil(50/this.size);
+        cellArray.forEach( (element, i) => {
+            element.forEach( (ele, j) => {
+                minicx.fillStyle = ele.color;
+                minicx.fillRect(j*s,i*s,s,s);
+            });
+        });	
+        var url = '/leveldetails';
+        var form = $('<form action="' + url + '" method="post" enctype="multipart/form-data">' +
+        '<input type="text" name="thumbnail" value="' + minic.toDataURL() + '" />' +
+        '<input type="text" name="levelArray" value="' + exportedLevel + '" />' +
+        '<input type="text" name="colorArray" value=\'' + exportedColor + '\' />' +
+        '<input type="text" name="size" value=\'' + this.size + '\' />' +
+        '</form>');
+        $('body').append(form);
+        form.submit();
     }
 
     // Populate side numbers
@@ -230,15 +245,6 @@ function FluidGrid(posX, posY, size, cellSize) {
             cellArray[j][i] = new ColorCell(cellX, cellY, this.cellSize);
         }
     }
-
-    // function wasClicked(cell, ct) {
-    //     if (cell.filled == false) {
-    //         cell.filled = true;
-    //     }
-    //     else if (cell.filled == true) {
-    //         cell.filled = false;
-    //     }
-    // }
 
     // Create initial numbers
     this.calculateSideNumbers();

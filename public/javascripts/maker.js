@@ -7,20 +7,23 @@ var exportButton;
 
 drawArray.push(bg);
 
-var selector1 = new GridSelector(350, 100, 5);
-var selector2 = new GridSelector(350, 200, 10);
-var selector3 = new GridSelector(350, 300, 15);
-var selector4 = new GridSelector(350, 400, 20);
+var selector1 = new GridSelector(350, 80, 5);
+var selector2 = new GridSelector(350, 160, 10);
+var selector3 = new GridSelector(350, 240, 15);
+var selector4 = new GridSelector(350, 320, 20);
+var selector5 = new GridSelector(350, 400, 25);
 
 drawArray.push(selector1);
 drawArray.push(selector2);
 drawArray.push(selector3);
 drawArray.push(selector4);
+drawArray.push(selector5);
 
 clickArray.push(selector1);
 clickArray.push(selector2);
 clickArray.push(selector3);
 clickArray.push(selector4);
+clickArray.push(selector5);
 
 var build = function (size) {
     grid = new FluidGrid(200,20,size,400/(size+1));
@@ -32,6 +35,8 @@ var build = function (size) {
     drawArray.pop();
     drawArray.pop();
     drawArray.pop();
+    drawArray.pop();
+    drawArray.pop();
 
     drawArray.push(bg);
     drawArray.push(grid);
@@ -40,6 +45,7 @@ var build = function (size) {
     drawArray.push(carousel);
     drawArray.push(exportButton);
 
+    clickArray.pop();
     clickArray.pop();
     clickArray.pop();
     clickArray.pop();

@@ -19,7 +19,6 @@ router.post('/', function(req, res, next) {
   var form = new formidable.IncomingForm();
 
   form.parse(req, function(err, fields, files) {
-    console.log(fields);
     var email = fields.email;
     var password = fields.password;
 

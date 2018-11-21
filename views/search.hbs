@@ -1,0 +1,62 @@
+<div class="bounding">
+
+    <div class="container">
+
+        <h1 class="centered">Play</h1>
+
+        <form action="/search" method="GET">
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="right">
+                    Sort by: 
+                    <ul>
+                        <li><input type="radio" name="sort" value="title" id="title" class="radio"><a class="sort" href='javascript:sortClick("title");' id="title-link">Title</a></li>
+                        <li><input type="radio" name="sort" value="created" id="created" class="radio"><a class="sort" href='javascript:sortClick("created");' id="created-link">Created</a></li>
+                        <li><input type="radio" name="sort" value="edited" id="edited" class="radio"><a class="sort" href='javascript:sortClick("edited");' id="edited-link">Edited</a></li>
+                        <li><input type="radio" name="sort" value="size" id="size" class="radio"><a class="sort" href='javascript:sortClick("size");' id="size-link">Size</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <input type="text" name="search" class="input-line">
+                <input type="submit" value="Search" class="button">
+            </div>
+
+        </div>
+
+        </form>
+
+        {{#if message}}
+        <h3 class="centered message">{{message}}</h3>
+        {{else}}
+        <div class="row">
+            <div class="col-lg-3">
+                <br>
+                Showing {{puzzles.length}} puzzles!
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="row">
+
+            {{#each puzzles}}
+            <div class="col">
+                <div class="puzzle">
+                    <a href="/puzzle/{{this.puzzle_id}}">
+                        <div class="centered">
+                            <img src="{{this.puzzle_thumbnail}}" alt="{{this.puzzle_title}}" class="image-thumbnail">
+                        </div>
+                        <h4 class="centered">{{this.puzzle_title}} - <i class="fas fa-star"></i>{{this.puzzle_rating}}</h4>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+</div>

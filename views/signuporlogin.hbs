@@ -5,10 +5,13 @@
 
     <div class="container" style="padding: 25px 50px;">
          <div class="row justify-content-center input-line">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <h1>Sign Up</h1>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-2">
+                {{!-- Empty --}}
+            </div>
+            <div class="col-lg-5">
                 <h1>Login</h1>
             </div>
         </div>
@@ -21,7 +24,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg-5">
-                        <label for="username" class="text-label"><b>Username</b></label>
+                        <label for="username" class="text-label"><b>Username<span class="star">*</span></b></label>
                     </div>
                     <div class="col-lg-7">
                         <input type="text" form="signup" tabindex="1" placeholder="Enter Username" name="username" required>
@@ -41,7 +44,7 @@
             <div class="col-lg-5">
                 <div class="row">
                     <div class="col-lg-5">
-                        <label for="email" class="text-label"><b>Email</b></label>
+                        <label for="email" class="text-label"><b>Email<span class="star">*</span></b></label>
                     </div>
                     <div class="col-lg-7">
                         <input type="text" form="signup" tabindex="2" placeholder="Enter Email" name="email" required>
@@ -67,7 +70,7 @@
             <div class="col-lg-5">
                 <div class="row">
                     <div class="col-lg-5">
-                        <label for="password" class="text-label"><b>Password</b></label>
+                        <label for="password" class="text-label"><b>Password<span class="star">*</span></b></label>
                     </div>
                     <div class="col-lg-7">
                         <input type="password" form="signup" tabindex="3" placeholder="Enter Password" name="password" required>
@@ -93,7 +96,7 @@
             <div class="col-lg-5">
                 <div class="row">
                     <div class="col-lg-5">
-                        <label for="password-repeat" class="text-label"><b>Repeat</b></label>
+                        <label for="password-repeat" class="text-label"><b>Repeat<span class="star">*</span></b></label>
                     </div>
                     <div class="col-lg-7">
                         <input type="password" form="signup" tabindex="4" placeholder="Repeat Password" name="password-repeat" required>
@@ -116,14 +119,18 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-5 canceldiv">
-                <button type="submit" form="signup" tabindex="5" class="cancelbtn">Sign Up</button>
+            <div class="col-lg-5">
+                <div class="btndiv">
+                    <button type="submit" form="signup" tabindex="5" class="signupbtn">Sign Up</button>
+                </div>
             </div>
             <div class="col-lg-2">
                 {{!-- Empty --}}
             </div>
             <div class="col-lg-5">
-                <button type="submit" form="login" tabindex="8" class="loginbtn">Login</button>
+                <div class="btndiv">
+                    <button type="submit" form="login" tabindex="8" class="loginbtn">Login</button>
+                </div>
             </div>
         </div>
     </div>

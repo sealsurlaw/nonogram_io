@@ -1,0 +1,64 @@
+.bounding {
+    margin: 30px 0;
+}
+
+.bounding .container {
+    color: #678FFE;
+    background-color: #180D49;
+    padding: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.image-thumbnail {
+    width: 200px;
+    image-rendering: pixelated;
+}
+
+.puzzle {
+    margin-top: 40px;
+}
+
+.sort {
+    padding: 0;
+    margin-right: 20px;
+    color: #8B76E8;
+}
+
+.star {
+    color: white;
+}
+
+/* div {
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+} */
+
+a {
+    color: #8B76E8;
+}
+
+a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+body {
+    background-color: #58A7C6;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 991.98px) {
+    .bounding {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
