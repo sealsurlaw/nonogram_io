@@ -27,7 +27,11 @@ router.post('/', function(req, res, next) {
       INSERT INTO public.users
         (user_name, user_email, user_password)
       VALUES ('`+username+`', '`+email+`', '`+password+`')`)
+    .then( _ => {
+      help.render(req, res, 'login');
+    })
     .catch( err => {
+      console.log(err);
       if (err.constraint == 'user_email_unique') {
         help.render(req, res, 'signup', {message: 'Email already exists'});
       }
@@ -36,8 +40,6 @@ router.post('/', function(req, res, next) {
       }
       return;
     });
-
-    help.render(req, res, 'login');
   })
 
 
