@@ -2,8 +2,8 @@ const gridSize = level.length;              // Number of cells in height and wid
 const gridCellSize = 120/(gridSize/5);      // Size of each cell
 
 // Create new grid and toggle
-var grid = new Grid(200,70,gridSize,gridCellSize);
-var toggle = new Toggle(435,20, clickTypes.FILL,grid);
+var grid = new Grid(200,120,gridSize,gridCellSize);
+var toggle = new Toggle(365,30, clickTypes.FILL,grid);
 // var bg = new Background(50);
 
 // drawArray.push(bg);
