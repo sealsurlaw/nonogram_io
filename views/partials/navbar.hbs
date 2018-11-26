@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <div class="mr-auto">
+    <div class="mr-auto nav-wide">
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/maker">Make</a></li>
@@ -8,6 +8,20 @@
             <li><a href="/dashboard">My Puzzles</a></li>
             {{/if}}
         </ul>
+    </div>
+    <div class="dropdown nav-narrow">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/">Home</a>
+            <a class="dropdown-item" href="/maker">Make</a>
+            <a class="dropdown-item" href="/search">Play</a>
+            {{#if user}}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/dashboard">My Puzzles</a>
+            {{/if}}
+        </div>
     </div>
     <div class="ml-auto">
         <ul>
