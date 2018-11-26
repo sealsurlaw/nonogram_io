@@ -1,9 +1,6 @@
 const gridSize = level.length;              // Number of cells in height and width
 const gridCellSize = 120/(gridSize/5);      // Size of each cell
 
-// Calculate center of canvas x
-var gridX = Math.floor((c.width - (gridSize*gridCellSize)) / 2);
-
 // Create new grid and toggle
 var grid = new Grid(200,70,gridSize,gridCellSize);
 var toggle = new Toggle(435,20, clickTypes.FILL,grid);
@@ -19,6 +16,6 @@ clickArray.push(toggle);
 c.addEventListener('click', (e) => {
     if (grid.checkWin()) {
         drawArray.pop();
-        drawArray.push(new WinGrid(gridX, 20, gridSize, gridCellSize));
+        drawArray.push(new WinGrid(200, 70, gridSize, gridCellSize));
     }
 });
