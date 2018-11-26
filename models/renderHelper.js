@@ -1,7 +1,7 @@
 var db = require('../db');
 
 function render(req, res, page, options) {
-    var userId = req.signedCookies.id;
+    var userId = req.session.user_id;
 
     if (!options) {
         var options = {};
@@ -16,7 +16,7 @@ function render(req, res, page, options) {
         return;
     }
     
-    db.any(`SELECT * FROM public.users WHERE user_id=`+userId)
+    db.any(`SELECT * FROM public.users WHERE user_id=` + userId)
     .then( data => {
         if (data) {
             options.user = data[0];

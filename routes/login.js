@@ -25,8 +25,8 @@ router.post('/', function(req, res, next) {
     db.any(`SELECT * FROM public.users WHERE user_email='`+email+`'`)
     .then( user => {
       if (user[0] && hash.verify(password, user[0].user_password)) {
-        res.cookie("id", user[0].user_id, {signed: true, maxAge: 1000*60*60*24*7})
-        .redirect('/');
+        req.session.user_id = user[0].user_id;
+        res.redirect('/');
       }
       else {
         help.render(req, res, 'login', {message: "Incorrect Email or Password"} );

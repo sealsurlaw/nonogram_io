@@ -8,7 +8,7 @@ var help = require('../models/renderHelper');
 
 // GET
 router.get('/', function(req, res, next) {
-  var user = req.signedCookies.id;
+  // var user = req.session.id;
   var q = url.parse(req.url, true).query;
   var search = q.search;
   var sort = q.sort;

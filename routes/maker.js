@@ -5,7 +5,7 @@ var help = require('../models/renderHelper');
 
 // GET
 router.get('/', function(req, res, next) {
-    if (req.signedCookies.id || req.signedCookies.tid) {
+    if (req.session.user_id) {
         help.render(req, res, 'maker', {stylesheet: 'style'});
     }
     else {
