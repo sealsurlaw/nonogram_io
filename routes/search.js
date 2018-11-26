@@ -13,11 +13,11 @@ router.get('/', function(req, res, next) {
   var search = q.search;
   var sort = q.sort;
 
-  var where = '';
+  var where = ' WHERE puzzle_published=true';
   var order = ' ORDER BY puzzle_created ASC';
 
   if (search) {
-    where = ` WHERE puzzle_title ILIKE '%` + search + `%' OR puzzle_description ILIKE '%` + search + `%'`;
+    where = ` WHERE puzzle_published=true AND (puzzle_title ILIKE '%` + search + `%' OR puzzle_description ILIKE '%` + search + `%')`;
   }
   if (sort) {
     order = ' ORDER BY puzzle_'+sort+' ASC';
@@ -28,10 +28,10 @@ router.get('/', function(req, res, next) {
   )
   .then( results => {
     if (results.length != 0) {
-      help.render(req, res, 'search', {puzzles: results, script: 'search'});
+      help.render(req, res, 'search', {puzzles: results, script: 'search', search: search});
     }
     else {
-      help.render(req, res, 'search', {message: "There are no puzzles that match your search", script: 'search'});
+      help.render(req, res, 'search', {message: "There are no puzzles that match your search", script: 'search', search: search});
     }
   })
   .catch( err => {

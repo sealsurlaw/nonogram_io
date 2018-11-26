@@ -8,7 +8,7 @@ var help = require('../models/renderHelper');
 
 // GET
 router.get('/', function(req, res, next) {
-  var user = req.signedCookies.id;
+  var user = req.session.user_id;
   var q = url.parse(req.url, true).query;
   var sort = q.sort;
   if (sort) {
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   }
 
   db.any(`
-    SELECT * FROM public.puzzles WHERE puzzle_user_id=`+user+order
+    SELECT * FROM public.puzzles WHERE puzzle_published=true AND puzzle_user_id=`+user+order
   )
   .then( myPuzzles => {
     if (myPuzzles.length != 0) {
