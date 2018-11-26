@@ -1,15 +1,15 @@
 const gridSize = level.length;              // Number of cells in height and width
-const gridCellSize = 400/(level.length+1);   // Size of each cell
+const gridCellSize = 120/(gridSize/5);      // Size of each cell
 
 // Calculate center of canvas x
 var gridX = Math.floor((c.width - (gridSize*gridCellSize)) / 2);
 
 // Create new grid and toggle
-var grid = new Grid(gridX, 20, gridSize, gridCellSize);
-var toggle = new Toggle(650,20, clickTypes.FILL,grid);
-var bg = new Background(50);
+var grid = new Grid(200,70,gridSize,gridCellSize);
+var toggle = new Toggle(435,20, clickTypes.FILL,grid);
+// var bg = new Background(50);
 
-drawArray.push(bg);
+// drawArray.push(bg);
 drawArray.push(toggle);
 drawArray.push(grid);
 

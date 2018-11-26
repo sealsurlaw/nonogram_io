@@ -7,13 +7,13 @@ function Toggle(togX,togY,initialState,gridRef) {
     // Drawn every 33ms
     this.draw = function() {
         // Red square on left
-        ctx.fillStyle = "#FF0000";
+        ctx.fillStyle = "#00FFFF";
         ctx.fillRect(this.togX, this.togY, this.size, this.size);
 
         // Red X on right
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(this.togX + 100, this.togY, this.size, this.size);
-        ctx.strokeStyle = "#FF0000";
+        ctx.strokeStyle = "#000000";
         ctx.beginPath();
         ctx.lineWidth = 3;
         ctx.moveTo(this.togX + 100, this.togY);

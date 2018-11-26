@@ -63,7 +63,7 @@ function Grid(posX, posY, size, cellSize) {
         ctx.shadowOffsetY = 2;
         ctx.shadowBlur = 4;
 
-        ctx.font = (cellSize-5) + "px Courier";
+        ctx.font = (cellSize/2) + "px Courier";
 
         leftSideNumbers.forEach( (row, i) => {
             var leftString = leftSideNumbers[i].join();
@@ -85,7 +85,7 @@ function Grid(posX, posY, size, cellSize) {
                 let tempX = (cellArray[0][i].x + (this.cellSize - ctx.measureText(number).width)/2);
                 ctx.fillText(number,tempX,tempY);
                 ctx.fillText(number,tempX,tempY);
-                tempY += cellSize - 5;
+                tempY += cellSize/2 + 5;
             });
         });
 

@@ -1,15 +1,65 @@
-body {
-  background-color: aqua;
-}
-
 .centered {
   text-align: center;
 }
 
+.bounding {
+  margin-top: 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  padding-left: 20%;
+  padding-right: 20%;
+
+  color: #678FFE;
+  background-color: #180D49;
+}
+
+body {
+  background-color: #58A7C6;
+}
+
 canvas {
   padding: 0;
-  margin: 30px auto;
+  /* margin: 30px auto; */
+  margin: 0;
+  border: 0;
   display: block;
-  width: 800px;
-  background-color: #FFFFAA;
+  width: 100%;
+  background-color: transparent;
+}
+
+@media (max-width: 991.98px) {
+
+  .bounding {
+    margin-left: 5%;
+    margin-right: 5%;
+
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+}
+
+@media (max-width: 767.98px) {
+
+  .bounding {
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+
+  .bounding {
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
 }

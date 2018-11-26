@@ -7,7 +7,7 @@ function Cell(posX, posY, size, filled, marked) {
     
     this.drawCell = function () {
         if (this.filled == true) {
-            ctx.fillStyle = "#333333";
+            ctx.fillStyle = "#00FFFF";
             ctx.fillRect(this.x, this.y, size, size);
         }
         else {

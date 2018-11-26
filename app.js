@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var signup = require('./routes/signup');
@@ -30,6 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("m&E0r&10@25AGB89SCjA"));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(
+  { secret: 'passport-tutorial',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false }));
 
 app.use('/', index);
 app.use('/signup', signup);
