@@ -26,6 +26,7 @@ canvas {
   display: block;
   width: 100%;
   background-color: transparent;
+  touch-action: none;
 }
 
 @media (max-width: 991.98px) {
