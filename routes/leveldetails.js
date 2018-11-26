@@ -14,13 +14,7 @@ router.post('/', function(req, res, next) {
     var level = fields.levelArray;
     var color = fields.colorArray;
     var size = fields.size;
-    var user;
-    if (req.signedCookies.id) {
-      user = req.signedCookies.id;
-    }
-    else {
-      user = req.signedCookied.tid;
-    }
+    var user = req.session.user_id;
 
     db.any(`
       INSERT INTO public.puzzles(
