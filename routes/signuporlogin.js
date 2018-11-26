@@ -7,13 +7,6 @@ var help = require('../models/renderHelper');
 
 router.post('/', function(req, res, next) {
     var form = new formidable.IncomingForm();
-    var user;
-    if (req.signedCookies.id) {
-        user = req.signedCookies.id;
-    }
-    else {
-        user = req.signedCookies.tid;
-    }
     form.parse(req, (err, fields, files) => {
         var title = fields.title;
         var description = fields.description;
@@ -25,14 +18,7 @@ router.post('/', function(req, res, next) {
             WHERE puzzle_id=`+id+` RETURNING puzzle_id`
         )
         .then( id => {
-            console.log(id);
-            if (req.signedCookies.tid) {
-                help.render(req, res, 'signuporlogin', {message: "Please login or signup to continue"});
-                return;
-            }
-            else if (req.signedCookies.id){
-                res.redirect('/');
-            }
+            res.redirect('/');
         })
         .catch ( err => {
             console.log(err);
